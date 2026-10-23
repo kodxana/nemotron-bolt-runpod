@@ -1,0 +1,19 @@
+Nemotron Bolt Runpod Worker
+Worker source is licensed under Apache License 2.0; see LICENSE.
+
+The container reuses the unmodified /src/main.py, handler.py and supporting files from
+runpod-workers/worker-vllm v2.30.0, Copyright (c) 2025 Runpod, under the MIT
+License. See licenses/Runpod-worker-MIT.txt. The original startup runs directly;
+this project does not relicense or modify its startup or handler.
+
+This project references NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB and its
+LiLiCorr drafter, published by NVIDIA Corporation under OpenMDW-1.1.
+Model weights and NVIDIA custom model/parser source are downloaded from
+their pinned upstream repositories at image build time and are not relicensed by
+this project. See licenses/OpenMDW-1.1.txt, https://openmdw.ai/license/1-1/ and the
+bundled model cards. Both models retain their upstream terms.
+
+The container incorporates vLLM, B12X and the Runpod Python SDK and their
+dependencies, each retaining its upstream notices and terms. B12X 1.5.1
+describes itself as not intended for production/datacenter environments.
+This worker does not claim NVIDIA, vLLM, or Runpod endorsement.

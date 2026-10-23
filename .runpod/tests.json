@@ -1,0 +1,82 @@
+{
+  "tests": [
+    {
+      "name": "models",
+      "input": {
+        "openai_route": "/v1/models"
+      },
+      "timeout": 1800000
+    },
+    {
+      "name": "short-text",
+      "input": {
+        "openai_route": "/v1/chat/completions",
+        "openai_input": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "What is 2 plus 2? Reply with one digit."
+            }
+          ],
+          "max_tokens": 32,
+          "temperature": 0,
+          "chat_template_kwargs": {
+            "enable_thinking": false
+          },
+          "model": "nemotron-bolt"
+        }
+      },
+      "timeout": 1800000
+    },
+    {
+      "name": "streamed-text",
+      "input": {
+        "openai_route": "/v1/chat/completions",
+        "openai_input": {
+          "max_tokens": 32,
+          "temperature": 0,
+          "stream": true,
+          "messages": [
+            {
+              "role": "user",
+              "content": "Reply with the single word ready."
+            }
+          ],
+          "model": "nemotron-bolt",
+          "chat_template_kwargs": {
+            "enable_thinking": false
+          },
+          "stream_options": {
+            "include_usage": true
+          }
+        }
+      },
+      "timeout": 1800000
+    }
+  ],
+  "config": {
+    "gpuTypeId": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+    "gpuCount": 1,
+    "allowedCudaVersions": [
+      "13.0",
+      "13.1",
+      "13.2",
+      "13.3",
+      "13.4"
+    ],
+    "env": [
+      {
+        "key": "MAX_MODEL_LEN",
+        "value": "32768"
+      },
+      {
+        "key": "ENFORCE_EAGER",
+        "value": "true"
+      },
+      {
+        "key": "SPECULATIVE_CONFIG",
+        "value": "{\"method\":\"dflash\",\"model\":\"/runpod-volume/models/lilicorr\",\"num_speculative_tokens\":7,\"rejection_sample_method\":\"standard\",\"attention_backend\":\"FLASHINFER\",\"draft_load_config\":{\"load_format\":\"auto\"}}"
+      }
+    ]
+  }
+}

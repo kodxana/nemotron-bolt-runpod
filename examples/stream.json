@@ -1,0 +1,22 @@
+{
+  "input": {
+    "openai_route": "/v1/chat/completions",
+    "openai_input": {
+      "stream": true,
+      "max_tokens": 256,
+      "messages": [
+        {
+          "role": "user",
+          "content": "Write a short explanation of how rainbows form."
+        }
+      ],
+      "model": "nemotron-bolt",
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "stream_options": {
+        "include_usage": true
+      }
+    }
+  }
+}

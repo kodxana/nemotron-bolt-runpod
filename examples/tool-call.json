@@ -1,0 +1,46 @@
+{
+  "input": {
+    "openai_route": "/v1/chat/completions",
+    "openai_input": {
+      "messages": [
+        {
+          "role": "user",
+          "content": "Get the temperature in Warsaw."
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "get_temperature",
+            "description": "Look up temperature in a city.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "city": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "city"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ],
+      "tool_choice": {
+        "type": "function",
+        "function": {
+          "name": "get_temperature"
+        }
+      },
+      "temperature": 0,
+      "max_tokens": 256,
+      "model": "nemotron-bolt",
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      }
+    }
+  }
+}

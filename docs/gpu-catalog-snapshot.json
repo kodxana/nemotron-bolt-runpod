@@ -1,0 +1,714 @@
+{
+  "observed_date": "2026-10-23",
+  "source": "Runpod list_gpu_types (SERVERLESS and POD) and get_capacity",
+  "query": {
+    "include": [
+      "AVAILABILITY"
+    ],
+    "product": [
+      "SERVERLESS"
+    ],
+    "cloud": "SECURE",
+    "count": 1,
+    "minCudaVersion": "13.0"
+  },
+  "gpus": [
+    {
+      "availability": "LOW",
+      "community": true,
+      "cudaVersions": [
+        {
+          "available": false,
+          "version": "13.0"
+        },
+        {
+          "available": true,
+          "version": "13.2"
+        }
+      ],
+      "dataCenters": [
+        {
+          "availability": "LOW",
+          "id": "EUR-IS-2",
+          "name": "EUR-IS-2"
+        },
+        {
+          "availability": "LOW",
+          "id": "EUR-NO-1",
+          "name": "EUR-NO-1"
+        }
+      ],
+      "id": "NVIDIA GeForce RTX 5090",
+      "manufacturer": "NVIDIA",
+      "maxCount": {
+        "community": 8,
+        "secure": 8
+      },
+      "memory": 32,
+      "name": "RTX 5090",
+      "pool": "ADA_32_PRO",
+      "price": {
+        "community": 0.69,
+        "secure": 1.19,
+        "serverless": 1.58
+      },
+      "secure": true
+    },
+    {
+      "availability": "NONE",
+      "community": true,
+      "cudaVersions": [
+        {
+          "available": false,
+          "version": "13.2"
+        }
+      ],
+      "id": "NVIDIA L40",
+      "manufacturer": "NVIDIA",
+      "maxCount": {
+        "community": 10,
+        "secure": 8
+      },
+      "memory": 48,
+      "name": "L40",
+      "pool": "ADA_48_PRO",
+      "price": {
+        "community": 0.69,
+        "secure": 0.82,
+        "serverless": 1.75
+      },
+      "secure": true
+    },
+    {
+      "availability": "LOW",
+      "community": true,
+      "cudaVersions": [
+        {
+          "available": true,
+          "version": "13.2"
+        }
+      ],
+      "dataCenters": [
+        {
+          "availability": "LOW",
+          "id": "US-MO-1",
+          "name": "US-MO-1"
+        }
+      ],
+      "id": "NVIDIA L40S",
+      "manufacturer": "NVIDIA",
+      "maxCount": {
+        "community": 8,
+        "secure": 8
+      },
+      "memory": 48,
+      "name": "L40S",
+      "pool": "ADA_48_PRO",
+      "price": {
+        "community": 0.79,
+        "secure": 1.09,
+        "serverless": 1.75
+      },
+      "secure": true
+    },
+    {
+      "availability": "LOW",
+      "community": true,
+      "cudaVersions": [
+        {
+          "available": true,
+          "version": "13.2"
+        }
+      ],
+      "dataCenters": [
+        {
+          "availability": "LOW",
+          "id": "US-IL-1",
+          "name": "US-IL-1"
+        },
+        {
+          "availability": "LOW",
+          "id": "US-WA-1",
+          "name": "US-WA-1"
+        }
+      ],
+      "id": "NVIDIA RTX 6000 Ada Generation",
+      "manufacturer": "NVIDIA",
+      "maxCount": {
+        "community": 8,
+        "secure": 8
+      },
+      "memory": 48,
+      "name": "RTX 6000 Ada",
+      "pool": "ADA_48_PRO",
+      "price": {
+        "community": 0.74,
+        "secure": 0.99,
+        "serverless": 1.75
+      },
+      "secure": true
+    },
+    {
+      "availability": "NONE",
+      "community": false,
+      "cudaVersions": [
+        {
+          "available": false,
+          "version": "13.2"
+        }
+      ],
+      "id": "NVIDIA RTX PRO 4500 Blackwell",
+      "manufacturer": "NVIDIA",
+      "maxCount": {
+        "community": 0,
+        "secure": 8
+      },
+      "memory": 32,
+      "name": "RTX PRO 4500",
+      "pool": "BLACKWELL_32",
+      "price": {
+        "community": 0.34,
+        "secure": 0.72,
+        "serverless": 1.15
+      },
+      "secure": true
+    },
+    {
+      "availability": "NONE",
+      "community": true,
+      "id": "NVIDIA RTX PRO 5000 Blackwell",
+      "manufacturer": "NVIDIA",
+      "maxCount": {
+        "community": 8,
+        "secure": 0
+      },
+      "memory": 48,
+      "name": "RTX PRO 5000",
+      "pool": null,
+      "price": {
+        "community": 0.82,
+        "secure": 0.96
+      },
+      "secure": true
+    },
+    {
+      "availability": "NONE",
+      "community": true,
+      "id": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+      "manufacturer": "NVIDIA",
+      "maxCount": {
+        "community": 2,
+        "secure": 0
+      },
+      "memory": 96,
+      "name": "RTX PRO 6000 MaxQ",
+      "pool": "BLACKWELL_96",
+      "price": {
+        "community": 1.64,
+        "secure": 0.5,
+        "serverless": 3.49
+      },
+      "secure": false
+    },
+    {
+      "availability": "LOW",
+      "community": true,
+      "cudaVersions": [
+        {
+          "available": true,
+          "version": "13.2"
+        }
+      ],
+      "dataCenters": [
+        {
+          "availability": "LOW",
+          "id": "EUR-IS-2",
+          "name": "EUR-IS-2"
+        },
+        {
+          "availability": "LOW",
+          "id": "US-MO-2",
+          "name": "US-MO-2"
+        },
+        {
+          "availability": "LOW",
+          "id": "US-NC-1",
+          "name": "US-NC-1"
+        },
+        {
+          "availability": "LOW",
+          "id": "US-NC-2",
+          "name": "US-NC-2"
+        },
+        {
+          "availability": "LOW",
+          "id": "US-PA-1",
+          "name": "US-PA-1"
+        }
+      ],
+      "id": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+      "manufacturer": "NVIDIA",
+      "maxCount": {
+        "community": 9,
+        "secure": 9
+      },
+      "memory": 96,
+      "name": "RTX PRO 6000",
+      "pool": "BLACKWELL_96",
+      "price": {
+        "community": 1.69,
+        "secure": 2.49,
+        "serverless": 3.49
+      },
+      "secure": true
+    },
+    {
+      "availability": "HIGH",
+      "community": false,
+      "cudaVersions": [
+        {
+          "available": true,
+          "version": "13.2"
+        }
+      ],
+      "dataCenters": [
+        {
+          "availability": "LOW",
+          "id": "EUR-IS-2",
+          "name": "EUR-IS-2"
+        },
+        {
+          "availability": "LOW",
+          "id": "US-NE-1",
+          "name": "US-NE-1"
+        },
+        {
+          "availability": "LOW",
+          "id": "US-PA-1",
+          "name": "US-PA-1"
+        },
+        {
+          "availability": "LOW",
+          "id": "US-WA-1",
+          "name": "US-WA-1"
+        }
+      ],
+      "id": "NVIDIA RTX PRO 6000 Blackwell Server Edition MIG 1g.24gb",
+      "manufacturer": "NVIDIA",
+      "maxCount": {
+        "community": 0,
+        "secure": 32
+      },
+      "memory": 24,
+      "name": "PRO 6000 MIG 24GB",
+      "pool": "AMPERE_24",
+      "price": {
+        "community": 0.5,
+        "secure": 0.69,
+        "serverless": 0.69
+      },
+      "secure": true
+    },
+    {
+      "availability": "MEDIUM",
+      "community": false,
+      "cudaVersions": [
+        {
+          "available": true,
+          "version": "13.2"
+        }
+      ],
+      "dataCenters": [
+        {
+          "availability": "LOW",
+          "id": "EUR-IS-2",
+          "name": "EUR-IS-2"
+        },
+        {
+          "availability": "LOW",
+          "id": "US-NE-1",
+          "name": "US-NE-1"
+        },
+        {
+          "availability": "LOW",
+          "id": "US-PA-1",
+          "name": "US-PA-1"
+        },
+        {
+          "availability": "LOW",
+          "id": "US-WA-1",
+          "name": "US-WA-1"
+        }
+      ],
+      "id": "NVIDIA RTX PRO 6000 Blackwell Server Edition MIG 2g.48gb",
+      "manufacturer": "NVIDIA",
+      "maxCount": {
+        "community": 0,
+        "secure": 16
+      },
+      "memory": 48,
+      "name": "PRO 6000 MIG 48GB",
+      "pool": "ADA_48_PRO",
+      "price": {
+        "community": 1,
+        "secure": 1.29,
+        "serverless": 1.75
+      },
+      "secure": true
+    },
+    {
+      "availability": "NONE",
+      "community": true,
+      "cudaVersions": [
+        {
+          "available": false,
+          "version": "13.2"
+        }
+      ],
+      "id": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition",
+      "manufacturer": "NVIDIA",
+      "maxCount": {
+        "community": 4,
+        "secure": 8
+      },
+      "memory": 96,
+      "name": "RTX PRO 6000 WK",
+      "pool": "BLACKWELL_96",
+      "price": {
+        "community": 1.69,
+        "secure": 2.59,
+        "serverless": 3.49
+      },
+      "secure": true
+    }
+  ],
+  "pod_query": {
+    "include": [
+      "AVAILABILITY"
+    ],
+    "product": [
+      "POD"
+    ],
+    "cloud": "SECURE",
+    "count": 1,
+    "minCudaVersion": "13.0"
+  },
+  "pod_gpus": [
+    {
+      "availability": "NONE",
+      "community": true,
+      "id": "NVIDIA RTX PRO 5000 Blackwell",
+      "manufacturer": "NVIDIA",
+      "maxCount": {
+        "community": 8,
+        "secure": 0
+      },
+      "memory": 48,
+      "name": "RTX PRO 5000",
+      "pool": null,
+      "price": {
+        "community": 0.82,
+        "secure": 0.96
+      },
+      "secure": true
+    },
+    {
+      "availability": "NONE",
+      "community": true,
+      "id": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+      "manufacturer": "NVIDIA",
+      "maxCount": {
+        "community": 2,
+        "secure": 0
+      },
+      "memory": 96,
+      "name": "RTX PRO 6000 MaxQ",
+      "pool": "BLACKWELL_96",
+      "price": {
+        "community": 1.64,
+        "secure": 0.5,
+        "serverless": 3.49
+      },
+      "secure": false
+    },
+    {
+      "availability": "LOW",
+      "community": true,
+      "cudaVersions": [
+        {
+          "available": true,
+          "version": "13.2"
+        }
+      ],
+      "dataCenters": [
+        {
+          "availability": "LOW",
+          "id": "US-MO-2",
+          "name": "US-MO-2"
+        },
+        {
+          "availability": "LOW",
+          "id": "US-NC-2",
+          "name": "US-NC-2"
+        }
+      ],
+      "id": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+      "manufacturer": "NVIDIA",
+      "maxCount": {
+        "community": 9,
+        "secure": 9
+      },
+      "memory": 96,
+      "name": "RTX PRO 6000",
+      "pool": "BLACKWELL_96",
+      "price": {
+        "community": 1.69,
+        "secure": 2.49,
+        "serverless": 3.49
+      },
+      "secure": true
+    },
+    {
+      "availability": "NONE",
+      "community": false,
+      "cudaVersions": [
+        {
+          "available": false,
+          "version": "13.2"
+        }
+      ],
+      "id": "NVIDIA RTX PRO 6000 Blackwell Server Edition MIG 2g.48gb",
+      "manufacturer": "NVIDIA",
+      "maxCount": {
+        "community": 0,
+        "secure": 16
+      },
+      "memory": 48,
+      "name": "PRO 6000 MIG 48GB",
+      "pool": "ADA_48_PRO",
+      "price": {
+        "community": 1,
+        "secure": 1.29,
+        "serverless": 1.75
+      },
+      "secure": true
+    },
+    {
+      "availability": "NONE",
+      "community": true,
+      "cudaVersions": [
+        {
+          "available": false,
+          "version": "13.2"
+        }
+      ],
+      "id": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition",
+      "manufacturer": "NVIDIA",
+      "maxCount": {
+        "community": 4,
+        "secure": 8
+      },
+      "memory": 96,
+      "name": "RTX PRO 6000 WK",
+      "pool": "BLACKWELL_96",
+      "price": {
+        "community": 1.69,
+        "secure": 2.59,
+        "serverless": 3.49
+      },
+      "secure": true
+    }
+  ],
+  "secure_pod_capacity_probe": {
+    "probedCudaVersions": [
+      "13.0",
+      "13.1",
+      "13.2",
+      "13.3",
+      "13.4"
+    ],
+    "items": [
+      {
+        "id": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+        "displayName": "RTX PRO 6000",
+        "memoryGb": 96,
+        "secureCloud": true,
+        "communityCloud": true,
+        "cudaVersions": {
+          "13.0": {
+            "stock": "Out",
+            "pricePerHr": null
+          },
+          "13.1": {
+            "stock": "Out",
+            "pricePerHr": null
+          },
+          "13.2": {
+            "stock": "Low",
+            "pricePerHr": 2.49
+          },
+          "13.3": {
+            "stock": "Out",
+            "pricePerHr": null
+          },
+          "13.4": {
+            "stock": "Out",
+            "pricePerHr": null
+          }
+        }
+      },
+      {
+        "id": "NVIDIA RTX PRO 6000 Blackwell Server Edition MIG 1g.24gb",
+        "displayName": "PRO 6000 MIG 24GB",
+        "memoryGb": 24,
+        "secureCloud": true,
+        "communityCloud": false,
+        "cudaVersions": {
+          "13.0": {
+            "stock": "Out",
+            "pricePerHr": null
+          },
+          "13.1": {
+            "stock": "Out",
+            "pricePerHr": null
+          },
+          "13.2": {
+            "stock": "Low",
+            "pricePerHr": 0.69
+          },
+          "13.3": {
+            "stock": "Out",
+            "pricePerHr": null
+          },
+          "13.4": {
+            "stock": "Out",
+            "pricePerHr": null
+          }
+        }
+      },
+      {
+        "id": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+        "displayName": "RTX PRO 6000 MaxQ",
+        "memoryGb": 96,
+        "secureCloud": false,
+        "communityCloud": true,
+        "cudaVersions": {
+          "13.0": {
+            "stock": "Out",
+            "pricePerHr": null
+          },
+          "13.1": {
+            "stock": "Out",
+            "pricePerHr": null
+          },
+          "13.2": {
+            "stock": "Out",
+            "pricePerHr": null
+          },
+          "13.3": {
+            "stock": "Out",
+            "pricePerHr": null
+          },
+          "13.4": {
+            "stock": "Out",
+            "pricePerHr": null
+          }
+        }
+      },
+      {
+        "id": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition",
+        "displayName": "RTX PRO 6000 WK",
+        "memoryGb": 96,
+        "secureCloud": true,
+        "communityCloud": true,
+        "cudaVersions": {
+          "13.0": {
+            "stock": "Out",
+            "pricePerHr": null
+          },
+          "13.1": {
+            "stock": "Out",
+            "pricePerHr": null
+          },
+          "13.2": {
+            "stock": "Out",
+            "pricePerHr": null
+          },
+          "13.3": {
+            "stock": "Out",
+            "pricePerHr": null
+          },
+          "13.4": {
+            "stock": "Out",
+            "pricePerHr": null
+          }
+        }
+      },
+      {
+        "id": "NVIDIA RTX PRO 5000 Blackwell",
+        "displayName": "RTX PRO 5000",
+        "memoryGb": 48,
+        "secureCloud": true,
+        "communityCloud": true,
+        "cudaVersions": {
+          "13.0": {
+            "stock": "Out",
+            "pricePerHr": null
+          },
+          "13.1": {
+            "stock": "Out",
+            "pricePerHr": null
+          },
+          "13.2": {
+            "stock": "Out",
+            "pricePerHr": null
+          },
+          "13.3": {
+            "stock": "Out",
+            "pricePerHr": null
+          },
+          "13.4": {
+            "stock": "Out",
+            "pricePerHr": null
+          }
+        }
+      },
+      {
+        "id": "NVIDIA RTX PRO 6000 Blackwell Server Edition MIG 2g.48gb",
+        "displayName": "PRO 6000 MIG 48GB",
+        "memoryGb": 48,
+        "secureCloud": true,
+        "communityCloud": false,
+        "cudaVersions": {
+          "13.0": {
+            "stock": "Out",
+            "pricePerHr": null
+          },
+          "13.1": {
+            "stock": "Out",
+            "pricePerHr": null
+          },
+          "13.2": {
+            "stock": "Out",
+            "pricePerHr": null
+          },
+          "13.3": {
+            "stock": "Out",
+            "pricePerHr": null
+          },
+          "13.4": {
+            "stock": "Out",
+            "pricePerHr": null
+          }
+        }
+      }
+    ],
+    "pagination": {
+      "total": 6,
+      "returned": 6,
+      "offset": 0,
+      "truncated": false,
+      "nextCursor": null
+    }
+  }
+}

@@ -1,0 +1,19 @@
+# Install with --no-deps --require-hashes. Build checks validate inherited dependencies.
+vllm @ https://wheels.vllm.ai/77154ca6116ae34cbfe314beef1016bde9b63989/vllm-0.32.0rc1.dev100%2Bg77154ca61-cp38-abi3-manylinux_2_28_x86_64.whl --hash=sha256:92e3958a32e65f19ce19dea3cc7a2e1c9edd57565f461617841abfc0a66bcd98
+b12x==1.5.1 --hash=sha256:8731e23571d8d45db26d78e7699ec0b23e7ba20b52487adf8c1063c8d8b53a3d
+fastapi==0.136.0 --hash=sha256:8793d44ec7378e2be07f8a013cf7f7aa47d6327d0dfe9804862688ec4541a6b4
+tokenspeed-mla==2.0.2 --hash=sha256:fb69d3d207c54a2c5d78b53f5195bc06173fe0a34157f40bf594b5176906d8a7
+humming-kernels==0.1.16 --hash=sha256:683212692f5e1339961e4322aff1ba116523e2681b2aafeaf7c081bc4e1f5627
+tokenspeed-triton==3.9.10.post20261008 --hash=sha256:96dbd5b519b22c9d3b4e39fa008f0c0b3b952f9b604a87578705c078d37af7b2 --hash=sha256:5cb864b8a55f3b0b6d95dca81af85abd702496265971d8c44366eb68c8851154
+
+# Match the complete OpenTelemetry family; the base mixes 1.40.0 and 1.45.1.
+opentelemetry-api==1.45.1 --hash=sha256:b31553efa588ae44bc306f863c785c5333a9ecc091248c6ee68b4b6c87fdedfb
+opentelemetry-exporter-http-transport==0.66b1 --hash=sha256:2f95404bdee7f9d2d529c7de56c7bd86d014d774d8fbf137810e0167f8a492bf
+opentelemetry-exporter-otlp==1.45.1 --hash=sha256:ef3910d32b36ccbaf62390189759bd43a8109885e2d50b738ed9c9b255bf5cb5
+opentelemetry-exporter-otlp-common==0.66b1 --hash=sha256:00ff8592c3a7cb729ff3fdc7ffa12372c243bdf2163e80c180994d0c7bd83ee9
+opentelemetry-exporter-otlp-proto-common==1.45.1 --hash=sha256:2f446183ae7047b036226f1d846c41a834b0e8755ad13b51a51dd38952eb466c
+opentelemetry-exporter-otlp-proto-grpc==1.45.1 --hash=sha256:e42ecb789d2fc5d8145e3dadc3e2991c9f18cd166d7c7514e234702540274b76
+opentelemetry-exporter-otlp-proto-http==1.45.1 --hash=sha256:24a97cf3753c7fb52fad44a696e452ff371686339e2acf3309e2eda3d0230700
+opentelemetry-proto==1.45.1 --hash=sha256:f38e2a8413053c180cd3d2637fbb279673ec2f6a6e09c995aafa2f452c52b46e
+opentelemetry-sdk==1.45.1 --hash=sha256:c604c11dc429810812348989115fa44bd558772a3d7442afc43d024f2c250ca4
+opentelemetry-semantic-conventions==0.66b1 --hash=sha256:d4cddeb4315490b35213f55e2bdc9ac54bb1e4d318927475bed62b35545e581b

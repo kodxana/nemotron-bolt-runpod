@@ -1,0 +1,15 @@
+**
+!Dockerfile
+!requirements.lock
+!inference-overlay.lock
+!assets.lock.json
+!local_model_args.json
+!scripts/
+!scripts/build_checks.py
+!scripts/bake_models.py
+!LICENSE
+!NOTICE
+!licenses/
+!licenses/**
+**/__pycache__/
+**/*.py[cod]

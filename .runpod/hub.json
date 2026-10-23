@@ -1,0 +1,90 @@
+{
+  "title": "Nemotron 3.5 Bolt 74B IQ2",
+  "description": "NVIDIA Nemotron Bolt and LiLiCorr baked into the original Runpod vLLM worker. 32K context on RTX PRO 6000 Blackwell 96GB or its 48GB MIG partition. GPU presets adjust environment settings; hardware selection is separate. Current image GPU qualification required.",
+  "type": "serverless",
+  "category": "language",
+  "config": {
+    "runsOn": "GPU",
+    "containerDiskInGb": 80,
+    "gpuCount": 1,
+    "gpuIds": "BLACKWELL_96,ADA_48_PRO,-NVIDIA L40,-NVIDIA L40S,-NVIDIA RTX 6000 Ada Generation",
+    "allowedCudaVersions": [
+      "13.0",
+      "13.1",
+      "13.2",
+      "13.3",
+      "13.4"
+    ],
+    "presets": [
+      {
+        "name": "RTX PRO 6000 Blackwell 96GB - 32K (default)",
+        "defaults": {
+          "MAX_MODEL_LEN": 32768,
+          "ENFORCE_EAGER": true,
+          "SPECULATIVE_CONFIG": true
+        }
+      },
+      {
+        "name": "RTX PRO 6000 Blackwell MIG 48GB - 32K (retest required)",
+        "defaults": {
+          "MAX_MODEL_LEN": 32768,
+          "ENFORCE_EAGER": true,
+          "SPECULATIVE_CONFIG": true
+        }
+      },
+      {
+        "name": "RTX 5090 32GB - 2K (experimental)",
+        "defaults": {
+          "MAX_MODEL_LEN": 2048,
+          "ENFORCE_EAGER": true,
+          "SPECULATIVE_CONFIG": true
+        }
+      },
+      {
+        "name": "RTX PRO 4500 Blackwell 32GB - 2K (experimental)",
+        "defaults": {
+          "MAX_MODEL_LEN": 2048,
+          "ENFORCE_EAGER": true,
+          "SPECULATIVE_CONFIG": true
+        }
+      }
+    ],
+    "env": [
+      {
+        "key": "MAX_MODEL_LEN",
+        "input": {
+          "name": "Context window",
+          "type": "number",
+          "description": "Input plus generated tokens. Default 32768 targets RTX PRO 6000 Blackwell 96GB or its 48GB MIG partition. 32GB presets use 2048. Current image GPU acceptance is still required.",
+          "default": 32768,
+          "min": 1024,
+          "max": 262144,
+          "advanced": true
+        }
+      },
+      {
+        "key": "ENFORCE_EAGER",
+        "input": {
+          "name": "Faster startup (eager mode)",
+          "type": "boolean",
+          "description": "Skip Torch compilation and CUDA graph capture. Some kernel setup remains; generation throughput may be lower. Disable to restore compiled mode.",
+          "default": true,
+          "trueValue": "true",
+          "falseValue": "false",
+          "advanced": true
+        }
+      },
+      {
+        "key": "SPECULATIVE_CONFIG",
+        "input": {
+          "name": "LiLiCorr speculative decoding",
+          "type": "boolean",
+          "description": "Use the stock worker SPECULATIVE_CONFIG with the baked LiLiCorr drafter. Off sends an empty value and omits the speculative flag.",
+          "default": true,
+          "trueValue": "{\"method\":\"dflash\",\"model\":\"/runpod-volume/models/lilicorr\",\"num_speculative_tokens\":7,\"rejection_sample_method\":\"standard\",\"attention_backend\":\"FLASHINFER\",\"draft_load_config\":{\"load_format\":\"auto\"}}",
+          "falseValue": ""
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+PASS: reproduced the supplied build error with real package metadata.
+Incompatible inference dependencies:
+opentelemetry-exporter-otlp-proto-grpc requires opentelemetry-exporter-otlp-proto-common==1.40.0; installed 1.45.1
+opentelemetry-exporter-otlp-proto-grpc requires opentelemetry-proto==1.40.0; installed 1.45.1
+opentelemetry-exporter-otlp-proto-grpc requires opentelemetry-sdk~=1.40.0; installed 1.45.1
+PASS: hash-locked telemetry repair passes recursive dependency checks.
+PASS: gRPC and HTTP exporter imports succeed.
+Scope: isolated Python 3.12.14 environment on Windows, not the full Linux inference image.
