@@ -1,5 +1,7 @@
 # Nemotron 3.5 Bolt on Runpod
 
+[![Runpod](https://api.runpod.io/badge/kodxana/nemotron-bolt-runpod)](https://console.runpod.io/hub/listing/kodxana/nemotron-bolt-runpod)
+
 Deploy [NVIDIA Nemotron 3.5 Bolt](https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB) on Runpod and connect it to an OpenAI-compatible chat app. The model is included in the image, with **32K context by default** and streaming responses.
 
 ## Choose your GPU
