@@ -27,6 +27,8 @@
 
 ## Current change and CPU evidence
 
+Hub's required root `handler.py` is now present as a byte-for-byte copy of `worker-vllm` v2.30.0 `src/handler.py`, retaining its MIT license and the hash recorded above. The Docker build copies it to `/src/handler.py` before existing source checks. Startup still runs the original `/src/main.py`. Handler integration checks now exercise the repository copy; configuration checks also require its Docker inclusion. No handler logic or model settings changed.
+
 The deployment selector is now `BLACKWELL_96,ADA_48_PRO,-NVIDIA L40,-NVIDIA L40S,-NVIDIA RTX 6000 Ada Generation`: three 96GB Blackwell variants plus the exact 48GB Blackwell MIG partition. The test GPU remains `NVIDIA RTX PRO 6000 Blackwell Server Edition`; the later capacity reads show LOW Secure Pod stock for it and NONE for the 48GB MIG. Both Hub files allow CUDA 13.0–13.4. Docker/Hub/test context remains 32,768. A 48GB MIG preset is added alongside the 96GB profile and experimental 32GB/2K profiles. Presets only set environment values. See `gpu-catalog-snapshot.json` for separate Serverless, Pod and CUDA-version reads on 2026-10-23.
 
 The entire custom runtime package is removed. The entrypoint directly runs the unchanged `/src/main.py`, which launches the global vLLM CLI and registers the unchanged handler. Baked metadata fixes the model/tokenizer paths; environment variables and `VLLM_EXTRA_ARGS` supply Nemotron flags. The SDK and startup dependencies remain isolated in `/opt/queue` because of the FastAPI conflict.

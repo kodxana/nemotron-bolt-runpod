@@ -186,7 +186,7 @@ Compiled caches depend on GPU architecture, software and engine settings, not on
 
 `/local_model_args.json` points original startup directly at Bolt for model and tokenizer, taking precedence over environment path overrides. There is no runtime cache search. Both repositories are pinned in [assets.lock.json](../assets.lock.json); build checks validate file sizes, code/config hashes and every weight shard's SHA-256. Files total **25.08 GB / 23.36 GiB** before image compression; this is storage size, not VRAM usage. Keep `/cache` writable for disposable library caches.
 
-Stock startup and handler files are hash-checked and inherited unchanged. A separate queue environment handles the SDK dependency conflict while global vLLM runs inference. See [base-image compatibility](BASE-IMAGE.md) and the [maintainer guide](MAINTAINER.md) for pins and build steps.
+Stock startup and helper files are inherited unchanged. The root [handler.py](../handler.py) is an exact copy from the same pinned release, included for Hub and copied to `/src/handler.py` during the build. All are hash-checked. A separate queue environment handles the SDK dependency conflict while global vLLM runs inference. See [base-image compatibility](BASE-IMAGE.md) and the [maintainer guide](MAINTAINER.md) for pins and build steps.
 
 <details>
 <summary>Migrating from the earlier custom worker</summary>

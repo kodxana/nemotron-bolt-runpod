@@ -45,6 +45,8 @@ class UpstreamStartupTests(unittest.TestCase):
     def test_original_entrypoint_and_model_metadata(self):
         docker = (ROOT / 'Dockerfile').read_text(encoding='utf-8')
         self.assertIn('ENTRYPOINT ["/opt/queue/bin/python", "/src/main.py"]', docker)
+        self.assertIn('COPY handler.py /src/handler.py', docker)
+        self.assertIn('!handler.py', (ROOT / '.dockerignore').read_text(encoding='utf-8').splitlines())
         self.assertNotIn('COPY worker', docker)
         self.assertNotIn('PATH=', docker)
         for name in ('runtime.py', 'queue.py', 'config.py', 'assets.py'):

@@ -12,7 +12,9 @@ export RUNPOD_SOURCE_DIR="$PWD/.test-upstream/src"
 .venv/bin/python -m unittest discover -s tests -v
 ```
 
-On Windows, use `.venv/Scripts/python.exe` and `$env:RUNPOD_SOURCE_DIR=(Resolve-Path '.test-upstream/src').Path`. In the container, tests default to `/src`. Tests verify hashes for all seven imported upstream files and fail on drift or missing source. The fixture HTTP server uses loopback and synthetic responses, not NVIDIA weights or the Runpod gateway. The original source is only a local test dependency; it is inherited unchanged from the image at deployment.
+On Windows, use `.venv/Scripts/python.exe` and `$env:RUNPOD_SOURCE_DIR=(Resolve-Path '.test-upstream/src').Path`. In the container, startup tests default to `/src`. Tests verify hashes for all seven imported upstream files and fail on drift or missing source. Handler tests exercise the repository's root `handler.py` and verify its upstream hash. The fixture HTTP server uses loopback and synthetic responses, not NVIDIA weights or the Runpod gateway.
+
+[Runpod Hub requires a repository `handler.py`](https://docs.runpod.io/hub/publishing-guide#how-to-publish-your-repo). Ours is a verbatim MIT-licensed copy of [`src/handler.py` from worker-vllm v2.30.0](https://github.com/runpod-workers/worker-vllm/blob/v2.30.0/src/handler.py), matching the pinned base image. Docker copies it to `/src/handler.py`; the original `/src/main.py` still starts the engine and registers the handler. Do not run `python handler.py` as the entrypoint or replace it with a different upstream version. Update its pinned hash only when deliberately upgrading the base and testing the complete startup/handler contract.
 
 Regenerate the queue lock deliberately with `uv pip compile requirements.in --python-version 3.12 --universal --generate-hashes --no-annotate --output-file requirements.lock`. The direct SDK-environment requirements are Runpod 1.12.0, aiohttp 3.14.5 and huggingface-hub 2.2.0. The original startup imports Hugging Face helpers even when the baked model runs offline. Review changes and rerun checks. Do not upgrade the inference image or B12X without GPU qualification.
 
@@ -28,7 +30,7 @@ docker run --rm --entrypoint /opt/queue/bin/python nemotron-bolt-worker:0.4.0 \
 docker run --rm --entrypoint cat nemotron-bolt-worker:0.4.0 /app/inference-packages.txt
 ```
 
-The Dockerfile inherits the Runpod image by digest, installs the exact hash-pinned NVIDIA vLLM nightly and dependency adjustments, and isolates the SDK in `/opt/queue`. Build checks verify the original startup/helper/handler hashes and recursively validate inference dependencies. The SDK interpreter also imports the original startup during the build, catching missing dependencies before the model download. See [base compatibility](BASE-IMAGE.md). No upstream source file is copied over or edited.
+The Dockerfile inherits the Runpod image by digest, installs the exact hash-pinned NVIDIA vLLM nightly and dependency adjustments, and isolates the SDK in `/opt/queue`. Build checks verify the original startup/helper/handler hashes after copying the identical repository handler, and recursively validate inference dependencies. The SDK interpreter also imports the original startup during the build, catching missing dependencies before the model download. See [base compatibility](BASE-IMAGE.md). Upstream runtime behavior remains unchanged.
 
 The builder downloads locked assets into `/runpod-volume/models/bolt` and `/runpod-volume/models/lilicorr`, verifies every weight SHA-256, writes revision markers and removes download bookkeeping. The final image retains upstream notices and sets model libraries offline. No model code executes during download. B12X can still compile necessary kernels at startup, even in eager mode.
 

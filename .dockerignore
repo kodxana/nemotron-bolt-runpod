@@ -1,5 +1,6 @@
 **
 !Dockerfile
+!handler.py
 !requirements.lock
 !inference-overlay.lock
 !assets.lock.json

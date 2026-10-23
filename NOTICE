@@ -1,10 +1,15 @@
 Nemotron Bolt Runpod Worker
-Worker source is licensed under Apache License 2.0; see LICENSE.
+Project-authored source is licensed under Apache License 2.0; see LICENSE.
 
 The container reuses the unmodified /src/main.py, handler.py and supporting files from
 runpod-workers/worker-vllm v2.30.0, Copyright (c) 2025 Runpod, under the MIT
 License. See licenses/Runpod-worker-MIT.txt. The original startup runs directly;
 this project does not relicense or modify its startup or handler.
+
+The root handler.py is a verbatim copy of src/handler.py from that release,
+included for Runpod Hub and copied to /src/handler.py during the image build.
+Source: https://github.com/runpod-workers/worker-vllm/blob/v2.30.0/src/handler.py
+It retains the MIT license in licenses/Runpod-worker-MIT.txt.
 
 This project references NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB and its
 LiLiCorr drafter, published by NVIDIA Corporation under OpenMDW-1.1.

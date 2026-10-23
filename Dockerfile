@@ -40,6 +40,8 @@ RUN python3 -m venv /opt/queue \
 COPY assets.lock.json LICENSE NOTICE ./
 COPY licenses ./licenses
 COPY scripts/build_checks.py ./scripts/build_checks.py
+# Hub requires handler.py in the repository; this is the exact v2.30.0 copy.
+COPY handler.py /src/handler.py
 RUN python3 scripts/build_checks.py \
     && uv pip freeze --system > /app/inference-packages.txt \
     && mkdir -p /cache/huggingface

@@ -17,9 +17,9 @@ ROOT = Path(__file__).resolve().parent.parent
 class UpstreamHandlerTests(unittest.IsolatedAsyncioTestCase):
     @classmethod
     def setUpClass(cls):
-        path = Path(os.environ.get('RUNPOD_SOURCE_DIR', '/src')) / 'handler.py'
+        path = ROOT / 'handler.py'
         if not path.is_file():
-            raise RuntimeError('Set RUNPOD_SOURCE_DIR to the original v2.30.0 src folder; see docs/MAINTAINER.md')
+            raise RuntimeError('Repository is missing the pinned upstream handler.py')
         if hashlib.sha256(path.read_bytes()).hexdigest() != UPSTREAM_HANDLER_SHA256:
             raise RuntimeError('Test source differs from the pinned Runpod handler')
         spec = importlib.util.spec_from_file_location('original_runpod_handler', path)
